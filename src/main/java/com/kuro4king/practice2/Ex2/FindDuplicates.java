@@ -1,8 +1,12 @@
 package com.kuro4king.practice2.Ex2;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class FindDuplicates {
 
     FindDuplicates(int[] array) {
+        showArray(array);
         findDup(array);
     }
 
@@ -21,27 +25,21 @@ public class FindDuplicates {
         boolean result = false;
         int countDup = 1;
         int dupNumber = 0;
+        Set set = new HashSet();
 
         // Поиск дубликатов
-        for (int i = 0; i < array.length; i++) {
-            int k = array[i];
-            for (int j = i + 1; j < array.length; j++) {
-                if (k == array[j]) {
-                    dupNumber = k;
-                    result = true;
-                    countDup++;
-                }
+        for (int j : array) {
+            if (!set.add(j)) {
+                result = true;
+                dupNumber = j;
+                countDup++;
             }
-            if (result) break;
         }
-        showArray(array);
-
         System.out.println("Result: " + result);
-
         if (result)
-            System.out.println("Число " + dupNumber + " повторяется " + countDup + " раза");
+            System.out.println("Число " + dupNumber + " повторяется " + countDup + " раза.");
         else System.out.println("Дубликатов нет");
-
         System.out.println();
+
     }
 }

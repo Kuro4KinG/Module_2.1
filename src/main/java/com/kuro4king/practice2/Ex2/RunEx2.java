@@ -1,5 +1,5 @@
 package com.kuro4king.practice2.Ex2;
-
+import java.util.*;
 public class RunEx2 {
     public static void main(String[] args) {
         int[] array1 = new int[]{4, 5, 6, 6, 8};
