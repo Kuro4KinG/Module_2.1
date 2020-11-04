@@ -7,7 +7,8 @@ public class FindDuplicates {
 
     FindDuplicates(int[] array) {
         showArray(array);
-        findDup(array);
+        System.out.println("Result = " + findDup(array));
+        System.out.println();
     }
 
     // Метод выводит массив
@@ -21,6 +22,22 @@ public class FindDuplicates {
     }
 
     // Метод ищет дубликаты в массиве и выводит их на экран
+    private boolean findDup(int[] array) {
+        boolean result = false;
+        Set set = new HashSet();
+
+        // Поиск дубликатов
+        for (int j : array) {
+            if (!set.add(j))
+                result = true;
+        }
+        return result;
+
+    }
+
+
+
+    /*// Метод ищет дубликаты в массиве и выводит их на экран
     private void findDup(int[] array) {
         boolean result = false;
         int countDup = 1;
@@ -41,5 +58,5 @@ public class FindDuplicates {
         else System.out.println("Дубликатов нет");
         System.out.println();
 
-    }
+    }*/
 }
